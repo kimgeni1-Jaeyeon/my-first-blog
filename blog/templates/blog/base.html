@@ -1,0 +1,47 @@
+﻿{% load static %}
+<html>
+	<head>
+		
+		<title>김재연의 블로그입니다</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+	<p>Hi there!</p>
+	<div class="page-header">
+            <h1><a href="">Jaeyeon Kim(김재연)'s Blog</a></h1>
+        	</div>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+           {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+{% for post in posts %}
+   <div class="posts">
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+
+{% endfor %}
+        <div>
+            <p>published: 27.04.2020, 16:11</p>
+            <h2><a href="">My first post</a></h2>
+            <p>경희대에 재학중인 김재연입니다. 장고를 익히기 위한 블로그 입니다.</p>
+        </div>
+
+        <div>
+            <p>published: 27.04.2020, 17:56</p>
+            <h2><a href="">My second post</a></h2>
+            <p>빨리 이 코로나가 사라지길 바랍니다.</p>
+        </div>
+
+	</body>
+</html>
